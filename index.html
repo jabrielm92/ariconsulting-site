@@ -131,7 +131,7 @@
               <div class="text-xs text-[var(--muted)]">Booked Rate</div>
             </div>
           </div>
-          <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+          <div class="mt-4 grid grid-cols-1 gap-3 text-xs">
             <div class="p-3 rounded-xl bg-white/5 border border-white/10">
               <div class="text-[var(--muted)]">Tech Stack</div>
               <div class="mono">Twilio • CallRail • HubSpot • Salesforce • ServiceTitan • Clio • Jobber • Google Sheets • Zapier • Webhooks</div>
@@ -166,7 +166,7 @@
     <style>@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}</style>
   </section>
 
-  <!-- SOLUTIONS (unchanged content, kept) -->
+  <!-- SOLUTIONS -->
   <section id="solutions" class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-extrabold">How We Find You More Leads, Sales, & Appointments</h2>
@@ -358,23 +358,22 @@
     </div>
   </div>
 
-  <!-- CONNECT MODAL (2‑step: info → Calendly) -->
+  <!-- CONNECT MODAL (Step 1: info → Step 2: optional Calendly) -->
   <div id="connectModal" role="dialog" aria-modal="true" aria-labelledby="connectTitle" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4">
-    <div class="glass soft rounded-2xl max-w-5xl w-full p-0 border border-white/10 overflow-hidden">
-      <div class="grid md:grid-cols-2">
-        <!-- Step 1: Intake Form -->
-        <div class="p-6 md:p-8">
-          <div class="flex items-center justify-between">
-            <h3 id="connectTitle" class="font-semibold">Lets Connect</h3>
-            <button id="closeConnect" class="text-[var(--muted)]" aria-label="Close connect">✕</button>
-          </div>
-          <p class="text-sm text-[var(--muted)] mt-2">Tell us a bit about your markets and goals. After you submit, you can book a time instantly.</p>
+    <div class="glass soft rounded-2xl w-full max-w-3xl border border-white/10 overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
+        <h3 id="connectTitle" class="font-semibold">Lets Connect</h3>
+        <button id="closeConnect" class="text-[var(--muted)]" aria-label="Close connect">✕</button>
+      </div>
+      <div class="grid md:grid-cols-1 max-h-[85vh] overflow-y-auto">
+        <div class="p-5 md:p-6">
+          <p class="text-sm text-[var(--muted)]">Tell us a bit about your markets and goals. After you submit, you’ll see an option to book a time—totally optional.</p>
           <form id="connectForm" class="mt-4 grid gap-3" novalidate>
             <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="text" name="name" placeholder="Your name" required />
             <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="email" name="email" placeholder="Work email" required />
             <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="tel" name="phone" placeholder="Phone (optional)" />
             <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="text" name="company" placeholder="Company (optional)" />
-            <div class="grid grid-cols-2 gap-3">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <select name="industry" class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3">
                 <option value="">Industry</option>
                 <option>Local Small Business</option>
@@ -389,15 +388,24 @@
             <!-- Honeypot -->
             <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
             <label class="text-xs text-[var(--muted)] flex items-start gap-2"><input type="checkbox" name="consent" required class="mt-1"> I consent to be contacted by phone/SMS and email. STOP to opt‑out. Data handled per Privacy & TCPA.</label>
-            <button class="ringy px-4 py-3 rounded-2xl text-white" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Submit & Continue</button>
+            <button class="ringy px-4 py-3 rounded-2xl text-white" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Submit</button>
             <p id="connectMsg" class="text-xs text-[var(--muted)]"></p>
           </form>
-        </div>
-        <!-- Step 2: Calendly -->
-        <div id="calendlyStep" class="bg-white/5 border-l border-white/10 p-4 md:p-6 hidden md:block">
-          <div class="text-sm text-[var(--muted)] mb-2">Book a time</div>
-          <div class="calendly-inline-widget" data-url="https://calendly.com/arisolutionsinc/30min" style="min-width:320px;height:720px;"></div>
-          <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+          <!-- Step 2 (collapsed): Success + optional Calendly reveal -->
+          <div id="successBlock" class="hidden mt-5 p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div class="text-sm">✅ <span class="font-semibold">Successful.</span> We received your details.</div>
+            <div class="text-xs text-[var(--muted)] mt-1">If you’d like, you can book a meeting now—or close this window and we’ll follow up by email.</div>
+            <div class="mt-3 flex flex-wrap gap-3">
+              <button id="revealCalendly" class="px-4 py-2 rounded-2xl border border-white/15 hover:bg-white/5">Book a time</button>
+              <button id="closeConnect2" class="px-4 py-2 rounded-2xl border border-white/15 hover:bg-white/5">Close</button>
+            </div>
+          </div>
+
+          <div id="calendlyWrap" class="hidden mt-4">
+            <div class="text-sm text-[var(--muted)] mb-2">Pick a time</div>
+            <div id="calendlyContainer" class="rounded-2xl overflow-hidden border border-white/10" style="height:0; transition:height .3s ease;"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -431,12 +439,14 @@
       document.getElementById('openConnectFooter')
     ];
     openers.forEach(btn=> btn && btn.addEventListener('click', (e)=>{ e.preventDefault(); connectModal.classList.remove('hidden'); connectModal.classList.add('flex'); }));
-    document.getElementById('closeConnect')?.addEventListener('click', ()=> { connectModal.classList.add('hidden'); connectModal.classList.remove('flex'); });
+    function closeConnect(){ connectModal.classList.add('hidden'); connectModal.classList.remove('flex'); }
+    document.getElementById('closeConnect')?.addEventListener('click', closeConnect);
+
   </script>
 
-  <!-- Firebase (client-side) + Calendly reveal on submit -->
+  <!-- Firebase (client-side) + Calendly lazy embed after success -->
   <script type="module">
-
+    // Replace with your Firebase web app config
 const firebaseConfig = {
   apiKey: "AIzaSyBYT2TxV16VqffIzPIRX5NY0NPiBHAJRDI",
   authDomain: "ariconsulting-ed653.firebaseapp.com",
@@ -455,14 +465,39 @@ const firebaseConfig = {
 
     const form = document.getElementById('connectForm');
     const msg = document.getElementById('connectMsg');
-    const calendlyStep = document.getElementById('calendlyStep');
+    const successBlock = document.getElementById('successBlock');
+    const revealCalendlyBtn = document.getElementById('revealCalendly');
+    const closeConnect2 = document.getElementById('closeConnect2');
+    const calendlyWrap = document.getElementById('calendlyWrap');
+    const calendlyContainer = document.getElementById('calendlyContainer');
+
+    if (closeConnect2) closeConnect2.addEventListener('click', ()=> { document.getElementById('closeConnect')?.click(); });
+
+    function loadCalendly(){
+      if (calendlyContainer.dataset.loaded) return;
+      // Your Calendly event URL
+      const calendlyUrl = 'https://calendly.com/arisolutionsinc/30min';
+      calendlyContainer.innerHTML = `<div class="calendly-inline-widget" data-url="${calendlyUrl}" style="min-width:320px;height:100%;"></div>`;
+      const s = document.createElement('script'); s.src = 'https://assets.calendly.com/assets/external/widget.js'; s.async = true; document.body.appendChild(s);
+      calendlyContainer.dataset.loaded = '1';
+    }
+
+    function showCalendly(){
+      calendlyWrap.classList.remove('hidden');
+      calendlyContainer.style.height = '620px';
+      loadCalendly();
+      // Scroll inside modal to Calendly
+      calendlyWrap.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    if (revealCalendlyBtn) revealCalendlyBtn.addEventListener('click', showCalendly);
 
     if (form) {
       form.addEventListener('submit', async (e)=>{
         e.preventDefault();
         const data = Object.fromEntries(new FormData(form).entries());
         try {
-          if (data.website) { form.reset(); msg.textContent = 'Thanks!'; calendlyStep?.classList.remove('hidden'); return; }
+          if (data.website) { form.reset(); msg.textContent = 'Thanks!'; successBlock.classList.remove('hidden'); return; }
           if(!data.name || !data.email || !data.consent){ msg.textContent = 'Please fill required fields and consent.'; return; }
           await addDoc(collection(db, 'leads'), {
             name: data.name,
@@ -477,12 +512,9 @@ const firebaseConfig = {
             source: 'connect-modal',
             userAgent: navigator.userAgent,
           });
-          msg.textContent = 'Thanks! Now pick a time that works for you.';
-          calendlyStep?.classList.remove('hidden');
-          // Scroll to Calendly on mobile
-          if (window.innerWidth < 768) {
-            calendlyStep?.scrollIntoView({behavior:'smooth'});
-          }
+          form.reset();
+          msg.textContent = '';
+          successBlock.classList.remove('hidden');
         } catch(err){
           console.error(err);
           msg.textContent = 'Sorry—something went wrong. Email arisolutionsinc@gmail.com';
