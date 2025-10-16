@@ -12,7 +12,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="ARI Solutions Inc. — ARI Leads Gen Consulting">
-  <meta property="og:description" content="Intent‑driven funnels that produce exclusive, TCPA‑logged demand. PayPal‑ready pricing and deep CRM integrations.">
+  <meta property="og:description" content="Intent‑driven funnels that produce exclusive, TCPA‑logged demand. Deep CRM integrations with an enterprise polish.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://arisolutions.vercel.app/">
   <meta property="og:image" content="https://arisolutions.vercel.app/og-cover.jpg">
@@ -80,7 +80,7 @@
         <a class="hover:text-white" href="#proof">Proof</a>
         <a class="hover:text-white" href="#pricing">Pricing</a>
         <a class="hover:text-white" href="#about">About Us</a>
-        <a class="ringy px-4 py-2 rounded-2xl hover:opacity-90 text-white" href="#connect" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Lets Connect</a>
+        <a id="openConnectNav" class="ringy px-4 py-2 rounded-2xl hover:opacity-90 text-white cursor-pointer" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Lets Connect</a>
       </nav>
       <button id="mBtn" class="md:hidden px-3 py-2 rounded-xl border border-white/10" aria-label="Open menu">☰</button>
     </div>
@@ -90,7 +90,7 @@
       <a href="#proof">Proof</a>
       <a href="#pricing">Pricing</a>
       <a href="#about">About Us</a>
-      <a href="#connect">Lets Connect</a>
+      <a id="openConnectNavMobile" class="cursor-pointer">Lets Connect</a>
     </div>
   </header>
 
@@ -105,8 +105,7 @@
         <h1 class="neon text-4xl md:text-6xl font-extrabold leading-tight mt-4">ARI Leads Gen Consulting</h1>
         <p class="text-lg mt-4 text-[var(--muted)]">We design intent‑driven funnels—programmatic city pages, interactive calculators, marketplace‑exit pages, and click‑to‑call surfaces—that turn real demand into <span class="text-white">exclusive, TCPA‑logged</span> leads. Not shared. Not guesswork.</p>
         <div class="mt-6 flex flex-wrap items-center gap-3">
-          <a href="#connect" class="ringy px-6 py-3 rounded-2xl text-white" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Lets Connect</a>
-          <button id="openContact" class="px-6 py-3 rounded-2xl border border-white/15 hover:bg-white/5">Contact Form</button>
+          <a id="openConnectHero" class="ringy px-6 py-3 rounded-2xl text-white cursor-pointer" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Lets Connect</a>
         </div>
         <div class="mt-6 flex flex-wrap gap-3 text-xs text-[var(--muted)]">
           <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1 rounded-full">📞 Call tracking</span>
@@ -167,7 +166,7 @@
     <style>@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}</style>
   </section>
 
-  <!-- SOLUTIONS -->
+  <!-- SOLUTIONS (unchanged content, kept) -->
   <section id="solutions" class="py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-extrabold">How We Find You More Leads, Sales, & Appointments</h2>
@@ -236,7 +235,7 @@
           <li>19% booking rate with missed‑call text‑back</li>
           <li>Cost/kept appt 27–34% lower vs. shared‑lead marketplaces</li>
         </ul>
-        <a href="#connect" class="mt-4 inline-block px-4 py-2 rounded-2xl border border-white/15 hover:bg-white/5">Lets Connect</a>
+        <a id="openConnectProof" class="mt-4 inline-block px-4 py-2 rounded-2xl border border-white/15 hover:bg-white/5 cursor-pointer">Lets Connect</a>
       </div>
       <div class="glass soft rounded-3xl p-6 border border-white/10">
         <div class="text-sm font-semibold">Enterprise Readiness</div>
@@ -268,7 +267,7 @@
         <div class="glass soft p-6 rounded-3xl border border-white/10">
           <div class="text-sm font-semibold">Pay‑Per‑Lead (PPL)</div>
           <ul class="list-disc pl-5 text-sm text-[var(--muted)] mt-2 space-y-2">
-            <li>Purchase lead blocks (e.g., 20). <strong>PayPal upfront</strong> or <strong>60% upfront + 40% on delivery</strong>.</li>
+            <li>Purchase lead blocks (e.g., 20). PayPal upfront or 60% upfront + 40% on delivery.</li>
             <li>Exclusive by territory/service; replacements for invalids (unreachable, duplicate, out‑of‑area) within 7 days.</li>
             <li>Typical ranges: Home Services $45–$120; Med‑Spa $60–$150; Legal/High‑intent $150–$350.</li>
           </ul>
@@ -276,7 +275,7 @@
         <div class="glass soft p-6 rounded-3xl border border-white/10">
           <div class="text-sm font-semibold">Pay‑Per‑Show (PPS)</div>
           <ul class="list-disc pl-5 text-sm text-[var(--muted)] mt-2 space-y-2">
-            <li>Deposit: <strong>50–70%</strong> via PayPal before calendar activation; balance weekly for <em>kept</em> appointments.</li>
+            <li>Deposit: 50–70% via PayPal before calendar activation; balance weekly for kept appointments.</li>
             <li>Show = prospect attends and matches ICP filters.</li>
             <li>Typical ranges: $120–$300 per kept appointment by niche/market.</li>
           </ul>
@@ -284,10 +283,6 @@
       </div>
       <div class="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10 text-sm text-[var(--muted)]">
         <strong class="text-white">Note:</strong> Card/ACH on file (via PayPal) expedites fulfillment. Late payments may pause routing. Pricing in USD.
-      </div>
-      <div class="mt-8" id="connect">
-        <a href="#" id="openPayPal" data-paypal-link="" class="ringy px-6 py-3 rounded-2xl text-white inline-block" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Lets Connect</a>
-        <span class="text-xs text-[var(--muted)] ml-3">(Use this button to place a deposit or pay for a lead block—PayPal link required.)</span>
       </div>
     </div>
   </section>
@@ -311,14 +306,13 @@
     </div>
   </section>
 
-  <!-- CONTACT / CTA -->
+  <!-- CONNECT CTA -->
   <section class="py-20">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl md:text-4xl font-extrabold">Are You Ready For More Leads, Sales, & Appointments?</h2>
       <p class="text-[var(--muted)] mt-3">Tell us your territories and ideal customers. We’ll tailor a plan and connect your CRM in days—not months.</p>
       <div class="mt-6 flex flex-wrap gap-3 justify-center">
-        <a href="#" id="openPayPal2" data-paypal-link="" class="ringy px-6 py-3 rounded-2xl text-white" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Lets Connect</a>
-        <button id="openContact2" class="px-6 py-3 rounded-2xl border border-white/15 hover:bg-white/5">Contact Form</button>
+        <a id="openConnectCTA" class="ringy px-6 py-3 rounded-2xl text-white cursor-pointer" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Lets Connect</a>
       </div>
       <p class="text-[11px] text-[var(--muted)] mt-3">We respect your time and data. Opt‑out anytime.</p>
     </div>
@@ -342,36 +336,12 @@
         <div class="font-semibold">Contact</div>
         <ul class="mt-2 space-y-2 text-[var(--muted)]">
           <li>Email: <a href="#" id="copyEmail" class="underline">arisolutionsinc@gmail.com</a> <span id="copied" class="ml-1 text-xs text-[var(--brand2)] hidden">copied!</span></li>
-          <li><a href="#connect" class="underline">Lets Connect</a></li>
+          <li><a id="openConnectFooter" class="underline cursor-pointer">Lets Connect</a></li>
         </ul>
       </div>
     </div>
     <div class="max-w-7xl mx-auto px-4 mt-8 text-xs text-[var(--muted)]">© <span id="year"></span> ARI Solutions Inc. All rights reserved.</div>
   </footer>
-
-  <!-- CONTACT MODAL -->
-  <div id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4">
-    <div class="glass soft rounded-2xl max-w-lg w-full p-6 border border-white/10">
-      <div class="flex items-center justify-between">
-        <h3 id="contactTitle" class="font-semibold">Contact ARI Solutions Inc.</h3>
-        <button id="closeContact" class="text-[var(--muted)]" aria-label="Close contact form">✕</button>
-      </div>
-      <p class="text-sm text-[var(--muted)] mt-2">Share territories, services, and monthly capacity. We’ll follow up by email or phone.</p>
-      <form id="contactForm" class="mt-4 grid gap-3" novalidate>
-        <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="text" name="name" placeholder="Your name" required />
-        <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="email" name="email" placeholder="Work email" required />
-        <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="tel" name="phone" placeholder="Phone (optional)" />
-        <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="text" name="company" placeholder="Company (optional)" />
-        <textarea class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" name="notes" rows="4" placeholder="Industries, territories, volume goals, current ad spend"></textarea>
-        <!-- Honeypot field -->
-        <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label class="text-xs text-[var(--muted)] flex items-start gap-2"><input type="checkbox" name="consent" required class="mt-1"> I consent to be contacted by phone/SMS and email. STOP to opt‑out. Data handled per Privacy & TCPA.</label>
-        <button class="ringy px-4 py-3 rounded-2xl text-white" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Send</button>
-        <p id="formMsg" class="text-xs text-[var(--muted)]"></p>
-      </form>
-      <p class="text-[11px] text-[var(--muted)] mt-2">Submitting this form records your IP, timestamp, and user agent for compliance.</p>
-    </div>
-  </div>
 
   <!-- PRIVACY MODAL -->
   <div id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4">
@@ -388,19 +358,57 @@
     </div>
   </div>
 
+  <!-- CONNECT MODAL (2‑step: info → Calendly) -->
+  <div id="connectModal" role="dialog" aria-modal="true" aria-labelledby="connectTitle" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4">
+    <div class="glass soft rounded-2xl max-w-5xl w-full p-0 border border-white/10 overflow-hidden">
+      <div class="grid md:grid-cols-2">
+        <!-- Step 1: Intake Form -->
+        <div class="p-6 md:p-8">
+          <div class="flex items-center justify-between">
+            <h3 id="connectTitle" class="font-semibold">Lets Connect</h3>
+            <button id="closeConnect" class="text-[var(--muted)]" aria-label="Close connect">✕</button>
+          </div>
+          <p class="text-sm text-[var(--muted)] mt-2">Tell us a bit about your markets and goals. After you submit, you can book a time instantly.</p>
+          <form id="connectForm" class="mt-4 grid gap-3" novalidate>
+            <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="text" name="name" placeholder="Your name" required />
+            <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="email" name="email" placeholder="Work email" required />
+            <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="tel" name="phone" placeholder="Phone (optional)" />
+            <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="text" name="company" placeholder="Company (optional)" />
+            <div class="grid grid-cols-2 gap-3">
+              <select name="industry" class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3">
+                <option value="">Industry</option>
+                <option>Local Small Business</option>
+                <option>Trades & Home Services</option>
+                <option>Health & Wellness</option>
+                <option>Legal</option>
+                <option>B2B Services</option>
+              </select>
+              <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="text" name="primary_market" placeholder="Primary market (city/region)" />
+            </div>
+            <textarea class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" name="notes" rows="4" placeholder="Territories, volume goals, current ad spend, preferred lead model (PPL/PPS)"></textarea>
+            <!-- Honeypot -->
+            <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <label class="text-xs text-[var(--muted)] flex items-start gap-2"><input type="checkbox" name="consent" required class="mt-1"> I consent to be contacted by phone/SMS and email. STOP to opt‑out. Data handled per Privacy & TCPA.</label>
+            <button class="ringy px-4 py-3 rounded-2xl text-white" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Submit & Continue</button>
+            <p id="connectMsg" class="text-xs text-[var(--muted)]"></p>
+          </form>
+        </div>
+        <!-- Step 2: Calendly -->
+        <div id="calendlyStep" class="bg-white/5 border-l border-white/10 p-4 md:p-6 hidden md:block">
+          <div class="text-sm text-[var(--muted)] mb-2">Book a time</div>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/arisolutionsinc/30min" style="min-width:320px;height:720px;"></div>
+          <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
     const mBtn = document.getElementById('mBtn'); const mMenu = document.getElementById('mMenu');
     if (mBtn) mBtn.addEventListener('click', ()=> mMenu.classList.toggle('hidden'));
 
-    // Modals
-    const contactModal = document.getElementById('contactModal');
-    const openContact = document.getElementById('openContact');
-    const openContact2 = document.getElementById('openContact2');
-    const closeContact = document.getElementById('closeContact');
-    [openContact, openContact2].forEach(btn => btn && btn.addEventListener('click', (e)=> { e.preventDefault(); contactModal.classList.remove('hidden'); contactModal.classList.add('flex'); }));
-    if (closeContact) closeContact.addEventListener('click', ()=> { contactModal.classList.add('hidden'); contactModal.classList.remove('flex'); });
-
+    // Privacy modal
     const privacyModal = document.getElementById('privacyModal');
     const openPrivacy = document.getElementById('openPrivacy');
     const closePrivacy = document.getElementById('closePrivacy');
@@ -412,31 +420,32 @@
     const copied = document.getElementById('copied');
     if (copyEmail) copyEmail.addEventListener('click', (e)=> { e.preventDefault(); navigator.clipboard.writeText('arisolutionsinc@gmail.com'); if (copied) { copied.classList.remove('hidden'); setTimeout(()=>copied.classList.add('hidden'), 1500); } });
 
-    // PayPal buttons (set data-paypal-link)
-    function wirePayPal(id){
-      const el = document.getElementById(id);
-      if(!el) return;
-      el.addEventListener('click', (e)=>{
-        const link = el.getAttribute('data-paypal-link');
-        if(link){ el.setAttribute('href', link); el.setAttribute('target','_blank'); return; }
-        e.preventDefault(); alert('Add your PayPal link (paypal.me/yourname/amount or Checkout link) to the data-paypal-link attribute.');
-      });
-    }
-    wirePayPal('openPayPal');
-    wirePayPal('openPayPal2');
+    // Connect modal openers
+    const connectModal = document.getElementById('connectModal');
+    const openers = [
+      document.getElementById('openConnectNav'),
+      document.getElementById('openConnectNavMobile'),
+      document.getElementById('openConnectHero'),
+      document.getElementById('openConnectProof'),
+      document.getElementById('openConnectCTA'),
+      document.getElementById('openConnectFooter')
+    ];
+    openers.forEach(btn=> btn && btn.addEventListener('click', (e)=>{ e.preventDefault(); connectModal.classList.remove('hidden'); connectModal.classList.add('flex'); }));
+    document.getElementById('closeConnect')?.addEventListener('click', ()=> { connectModal.classList.add('hidden'); connectModal.classList.remove('flex'); });
   </script>
 
-  <!-- Firebase (client-side) -->
+  <!-- Firebase (client-side) + Calendly reveal on submit -->
   <script type="module">
-    // Replace with your Firebase web app config
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT.firebaseapp.com",
-      projectId: "YOUR_PROJECT",
-      storageBucket: "YOUR_PROJECT.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID",
-    };
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBYT2TxV16VqffIzPIRX5NY0NPiBHAJRDI",
+  authDomain: "ariconsulting-ed653.firebaseapp.com",
+  projectId: "ariconsulting-ed653",
+  storageBucket: "ariconsulting-ed653.firebasestorage.app",
+  messagingSenderId: "295204571553",
+  appId: "1:295204571553:web:609edd27d13978803f23e0",
+  measurementId: "G-5Q1E8HH98V"
+};
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
@@ -444,28 +453,36 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    const form = document.getElementById('contactForm');
-    const msg = document.getElementById('formMsg');
+    const form = document.getElementById('connectForm');
+    const msg = document.getElementById('connectMsg');
+    const calendlyStep = document.getElementById('calendlyStep');
+
     if (form) {
       form.addEventListener('submit', async (e)=>{
         e.preventDefault();
         const data = Object.fromEntries(new FormData(form).entries());
         try {
-          if (data.website) { form.reset(); msg.textContent = 'Thanks!'; return; }
+          if (data.website) { form.reset(); msg.textContent = 'Thanks!'; calendlyStep?.classList.remove('hidden'); return; }
           if(!data.name || !data.email || !data.consent){ msg.textContent = 'Please fill required fields and consent.'; return; }
           await addDoc(collection(db, 'leads'), {
             name: data.name,
             email: data.email,
             phone: data.phone || '',
             company: data.company || '',
+            industry: data.industry || '',
+            primary_market: data.primary_market || '',
             notes: data.notes || '',
             consent: data.consent === 'on',
             createdAt: serverTimestamp(),
-            source: 'site-contact',
+            source: 'connect-modal',
             userAgent: navigator.userAgent,
           });
-          form.reset();
-          msg.textContent = 'Thanks! We received your details and will reach out shortly.';
+          msg.textContent = 'Thanks! Now pick a time that works for you.';
+          calendlyStep?.classList.remove('hidden');
+          // Scroll to Calendly on mobile
+          if (window.innerWidth < 768) {
+            calendlyStep?.scrollIntoView({behavior:'smooth'});
+          }
         } catch(err){
           console.error(err);
           msg.textContent = 'Sorry—something went wrong. Email arisolutionsinc@gmail.com';
