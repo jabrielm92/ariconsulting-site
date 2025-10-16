@@ -1,324 +1,323 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ArcLead — Exclusive Leads & Appointments</title>
-  <meta name="description" content="ArcLead sources exclusive, TCPA-compliant demand for local and enterprise brands. Request pricing and a tailored proposal." />
+  <title>ARI Consulting • Lead‑Gen Systems for Modern Brands</title>
+  <meta name="description" content="ARI Consulting builds futuristic, TCPA‑compliant lead systems—exclusive demand, measurable outcomes, and upfront billing options for serious growth teams." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-    .badge{display:inline-flex;gap:.4rem;align-items:center;border:1px solid rgba(255,255,255,.15);border-radius:9999px;padding:.25rem .6rem;font-size:.75rem}
-    .card{background-color:rgb(15 15 15/1);border:1px solid rgb(38 38 38/1)}
-    .glass{backdrop-filter:saturate(140%) blur(8px)}
+    :root{
+      --bg:#0b0f17; --panel:#0f1524; --muted:#96a0b5; --ink:#e6ecff; --brand:#7c5cff; --brand2:#00f5d4;
+    }
+    html,body{ height:100%; background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; }
+    .glass{ backdrop-filter: blur(14px); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08); }
+    .soft{ box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+    .neon{ text-shadow: 0 0 20px rgba(124,92,255,.55), 0 0 40px rgba(0,245,212,.25); }
+    .grad{
+      background: radial-gradient(800px 400px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
+                  radial-gradient(800px 400px at 90% 0%, rgba(0,245,212,.20), transparent 55%),
+                  linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    }
+    .ringy{ position:relative; }
+    .ringy:before{ content:""; position:absolute; inset:-2px; border-radius:22px; padding:2px; background:linear-gradient(120deg,rgba(124,92,255,.7),rgba(0,245,212,.7)); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; }
+    .shimmer{
+      background: linear-gradient(110deg, rgba(255,255,255,.06) 25%, rgba(255,255,255,.19) 37%, rgba(255,255,255,.06) 63%);
+      background-size: 200% 100%; animation: shimmer 2.2s linear infinite;
+    }
+    @keyframes shimmer{ 0%{ background-position: 200% 0;} 100%{ background-position: -200% 0; } }
+    .pulseDot{ box-shadow:0 0 0 0 rgba(0,245,212,.7); animation:pulse 2.4s infinite; }
+    @keyframes pulse { 0%{ box-shadow:0 0 0 0 rgba(0,245,212,.6);} 70%{ box-shadow:0 0 0 18px rgba(0,245,212,0);} 100%{ box-shadow:0 0 0 0 rgba(0,245,212,0);} }
+    .mono{ font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; }
   </style>
-  <!-- Open Graph -->
-  <meta property="og:title" content="ArcLead — Exclusive Leads & Appointments" />
-  <meta property="og:description" content="Request pricing and a tailored proposal. We deliver real demand, not clicks." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://dummyimage.com/1200x630/0a0a0a/e5e5e5&text=ArcLead" />
-  <!-- Schema.org Organization -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"ArcLead",
-    "url":"https://example.vercel.app",
-    "sameAs":[],
-    "contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"hello@arclead.test"}]
-  }
-  </script>
 </head>
-<body class="bg-neutral-950 text-neutral-100">
-  <!-- Top Bar -->
-  <header class="sticky top-0 z-40 border-b border-neutral-800/80 bg-neutral-950/70 glass">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2">
-        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 to-sky-400"></div>
-        <span class="font-extrabold tracking-tight">ArcLead</span>
+<body class="grad">
+  <!-- Decorative Background Orbs -->
+  <div class="pointer-events-none fixed -z-10 inset-0 overflow-hidden">
+    <div class="absolute -top-20 -left-20 h-[32rem] w-[32rem] rounded-full blur-3xl opacity-30" style="background: radial-gradient(circle at 30% 30%, var(--brand), transparent 60%);"></div>
+    <div class="absolute -bottom-20 -right-20 h-[28rem] w-[28rem] rounded-full blur-3xl opacity-30" style="background: radial-gradient(circle at 70% 70%, var(--brand2), transparent 60%);"></div>
+  </div>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-[rgba(11,15,23,.45)] border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a class="flex items-center gap-3" href="#">
+        <div class="h-10 w-10 grid place-items-center rounded-2xl soft" style="background:linear-gradient(135deg,var(--brand),var(--brand2));"><span class="font-black">A</span></div>
+        <span class="text-lg font-extrabold tracking-tight">ARI Consulting</span>
       </a>
-      <button id="navToggle" class="md:hidden p-2 rounded-lg border border-neutral-800" aria-label="Open menu">☰</button>
-      <nav id="mainNav" class="hidden md:flex items-center gap-6 text-sm text-neutral-300">
-        <a href="#how" class="hover:text-white">How it works</a>
-        <a href="#solutions" class="hover:text-white">Solutions</a>
-        <a href="#proof" class="hover:text-white">Transparency</a>
-        <a href="#faq" class="hover:text-white">FAQ</a>
-        <button class="px-3 py-1.5 rounded-xl bg-white text-neutral-900 font-semibold" data-modal-open="pricingModal">Request Pricing</button>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-[var(--muted)]">
+        <a class="hover:text-white" href="#solutions">Solutions</a>
+        <a class="hover:text-white" href="#proof">Proof</a>
+        <a class="hover:text-white" href="#billing">Billing</a>
+        <a class="ringy px-4 py-2 rounded-2xl hover:opacity-90 text-white" href="#start" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Start a Pilot</a>
       </nav>
+      <button id="mBtn" class="md:hidden px-3 py-2 rounded-xl border border-white/10">☰</button>
     </div>
-    <!-- Mobile Nav -->
-    <div id="mobileNav" class="hidden border-t border-neutral-800 md:hidden">
-      <div class="px-4 py-3 flex flex-col gap-3 text-sm text-neutral-300">
-        <a href="#how" class="hover:text-white">How it works</a>
-        <a href="#solutions" class="hover:text-white">Solutions</a>
-        <a href="#proof" class="hover:text-white">Transparency</a>
-        <a href="#faq" class="hover:text-white">FAQ</a>
-        <button class="px-3 py-2 rounded-xl bg-white text-neutral-900 font-semibold w-fit" data-modal-open="pricingModal">Request Pricing</button>
-      </div>
+    <div id="mMenu" class="hidden md:hidden px-4 pb-4 text-sm text-[var(--muted)] space-y-2">
+      <a href="#solutions">Solutions</a>
+      <a href="#proof">Proof</a>
+      <a href="#billing">Billing</a>
+      <a href="#start">Start a Pilot</a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-indigo-700/20 via-sky-600/10 to-transparent pointer-events-none"></div>
-    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10">
+  <!-- HERO -->
+  <section class="relative">
+    <div class="max-w-7xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <span class="badge"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> TCPA‑ready & exclusive</span>
-        <h1 class="mt-4 text-3xl md:text-6xl font-extrabold leading-tight">Real customers. <span class="text-sky-400">Not clicks.</span></h1>
-        <p class="mt-4 text-neutral-300 text-lg">We build high‑intent funnels that connect ready buyers with your team. Keep it simple: exclusive territories, transparent logs, and fast hand‑off. Pricing and packages are tailored per market—request details below.</p>
-        <div class="mt-8 flex flex-col sm:flex-row gap-3">
-          <button class="px-5 py-3 rounded-xl bg-white text-neutral-900 font-semibold" data-modal-open="pricingModal">Request Pricing</button>
-          <a href="#how" class="px-5 py-3 rounded-xl border border-neutral-700 text-neutral-200 text-center">See how</a>
+        <div class="inline-flex items-center gap-2 text-xs text-[var(--muted)] bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+          <span class="h-2 w-2 rounded-full bg-[var(--brand2)] pulseDot"></span>
+          Exclusive • Compliant • Measurable
         </div>
-        <div class="mt-6 flex flex-wrap gap-3 text-sm text-neutral-400">
-          <span class="badge">Speed‑to‑lead &lt; 60s</span>
-          <span class="badge">Form + call attribution</span>
-          <span class="badge">GDPR/CCPA aware</span>
-          <span class="badge">PII encryption</span>
+        <h1 class="neon text-4xl md:text-6xl font-extrabold leading-tight mt-4">Lead‑Gen Systems for <span class="text-[var(--brand2)]">Modern Brands</span></h1>
+        <p class="text-lg mt-4 text-[var(--muted)]">We design intent‑driven funnels—programmatic city pages, interactive calculators, and click‑to‑call surfaces—that turn real demand into <span class="text-white">exclusive, TCPA‑logged</span> leads. Not shared. Not guesswork.</p>
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <a href="#start" class="ringy px-6 py-3 rounded-2xl text-white" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Start a Pilot</a>
+          <button id="openContact" class="px-6 py-3 rounded-2xl border border-white/15 hover:bg-white/5">Talk to a Strategist</button>
         </div>
-      </div>
-      <!-- Functional Lead Capacity Teaser (no pricing) -->
-      <div class="card rounded-2xl p-6">
-        <h3 class="text-xl font-bold">Estimate monthly lead capacity</h3>
-        <p class="mt-1 text-sm text-neutral-400">A quick, non‑binding snapshot to discuss availability.</p>
-        <div class="mt-5 space-y-5" id="capacityForm">
-          <div>
-            <label class="block text-sm text-neutral-300">Monthly visitors (est.)</label>
-            <input type="range" min="500" max="20000" value="5000" class="w-full" id="visitors"/>
-            <div class="flex justify-between text-xs text-neutral-400"><span id="visitorsVal">5,000</span><span>per month</span></div>
-          </div>
-          <div>
-            <label class="block text-sm text-neutral-300">Conversion rate</label>
-            <input type="range" min="1" max="25" value="8" class="w-full" id="cvRate"/>
-            <div class="flex justify-between text-xs text-neutral-400"><span id="cvRateVal">8%</span><span>to lead</span></div>
-          </div>
-          <div class="p-4 rounded-xl bg-neutral-900 border border-neutral-800">
-            <div class="text-sm text-neutral-400">Projected qualified leads / month</div>
-            <div class="mt-1 text-3xl font-extrabold" id="leadOutput">400</div>
-          </div>
-          <button class="w-full px-5 py-3 rounded-xl bg-white text-neutral-900 font-semibold" data-modal-open="pricingModal">Discuss availability</button>
+        <div class="mt-6 flex flex-wrap gap-3 text-xs text-[var(--muted)]">
+          <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1 rounded-full">📞 Call tracking</span>
+          <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1 rounded-full">🧾 OTP‑verified forms</span>
+          <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1 rounded-full">🛡️ TCPA & DNC honored</span>
+          <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1 rounded-full">🔁 Invalid‑lead replacement</span>
         </div>
       </div>
+      <div class="relative">
+        <div class="glass soft rounded-3xl p-6 border border-white/10">
+          <h3 class="text-sm font-semibold text-[var(--muted)]">Live Performance (demo)</h3>
+          <div class="grid grid-cols-3 gap-4 mt-3">
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+              <div class="text-3xl font-extrabold">28%</div>
+              <div class="text-xs text-[var(--muted)]">Form→Qualified</div>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+              <div class="text-3xl font-extrabold">63s</div>
+              <div class="text-xs text-[var(--muted)]">Speed‑to‑Lead</div>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+              <div class="text-3xl font-extrabold">19%</div>
+              <div class="text-xs text-[var(--muted)]">Booked Rate</div>
+            </div>
+          </div>
+          <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+            <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-[var(--muted)]">Tech Stack</div>
+              <div class="mono">Twilio • CallRail • HubSpot • Calendly</div>
+            </div>
+            <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+              <div class="text-[var(--muted)]">Compliance</div>
+              <div class="mono">TCPA • DNC • OPT‑OUT SMS</div>
+            </div>
+          </div>
+          <p class="text-[11px] text-[var(--muted)] mt-3">*Demo metrics; pilots include a read‑only dashboard.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Logos / stack -->
-  <section class="border-y border-neutral-800 bg-neutral-900/40">
-    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-wrap items-center gap-6 opacity-80 text-sm">
-      <span>Runs on</span>
-      <div class="badge">Twilio</div>
-      <div class="badge">Calendly</div>
-      <div class="badge">Zapier</div>
-      <div class="badge">HubSpot/Sheets</div>
-      <div class="badge">hCaptcha + OTP</div>
+  <!-- LOGO MARQUEE -->
+  <section class="py-6 border-y border-white/10 bg-white/5">
+    <div class="max-w-7xl mx-auto px-4 overflow-hidden">
+      <div class="flex items-center gap-8 whitespace-nowrap animate-[scroll_28s_linear_infinite]" style="--tw:translateX(-50%);">
+        <span class="text-xs text-[var(--muted)]">Works with</span>
+        <div class="shimmer rounded-full px-4 py-2 text-sm">CallRail</div>
+        <div class="shimmer rounded-full px-4 py-2 text-sm">Twilio</div>
+        <div class="shimmer rounded-full px-4 py-2 text-sm">HubSpot</div>
+        <div class="shimmer rounded-full px-4 py-2 text-sm">ServiceTitan</div>
+        <div class="shimmer rounded-full px-4 py-2 text-sm">Clio</div>
+        <div class="shimmer rounded-full px-4 py-2 text-sm">Calendly</div>
+      </div>
+    </div>
+    <style>@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}</style>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section id="solutions" class="py-18 md:py-24">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-extrabold">Solutions that Outconvert Ads Alone</h2>
+      <p class="text-[var(--muted)] mt-2">Reusable components we re‑skin per niche—fast to launch, hard to copy.</p>
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        <div class="glass soft p-6 rounded-3xl border border-white/10">
+          <div class="text-sm font-semibold">Programmatic SEO</div>
+          <p class="text-[var(--muted)] mt-2">City/service pages at scale with FAQs, trust signals, and CTA blocks. Ranks on buying‑intent queries.</p>
+        </div>
+        <div class="glass soft p-6 rounded-3xl border border-white/10">
+          <div class="text-sm font-semibold">Calculators & Quizzes</div>
+          <p class="text-[var(--muted)] mt-2">“Should I replace my HVAC?” “Implant candidacy.” Results gated by SMS OTP to reduce junk.</p>
+        </div>
+        <div class="glass soft p-6 rounded-3xl border border-white/10">
+          <div class="text-sm font-semibold">Click‑to‑Call Funnels</div>
+          <p class="text-[var(--muted)] mt-2">Short‑form video + tap‑to‑call with rotating numbers. Under‑60s text‑back equals higher win rates.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- How it works -->
-  <section id="how" class="max-w-6xl mx-auto px-4 py-16">
-    <h2 class="text-2xl md:text-4xl font-extrabold">How it works</h2>
-    <div class="mt-8 grid md:grid-cols-3 gap-6">
-      <div class="card p-6 rounded-2xl">
-        <h3 class="font-semibold">1) Qualify intent</h3>
-        <p class="mt-2 text-neutral-300">Clear criteria: service fit, service area, decision window. Consent is logged with timestamp, IP, and user agent.</p>
+  <!-- PROOF / CASE CARD -->
+  <section id="proof" class="py-16 bg-white/5 border-y border-white/10">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-stretch">
+      <div class="glass soft rounded-3xl p-6 border border-white/10">
+        <div class="text-sm font-semibold">Case Preview</div>
+        <h3 class="text-2xl font-extrabold mt-2">Multi‑location Home Services</h3>
+        <ul class="mt-3 text-sm text-[var(--muted)] space-y-2">
+          <li>+312 exclusive inquiries in 30 days across 6 metros</li>
+          <li>19% booking rate with missed‑call text‑back</li>
+          <li>Cost/kept appt 27–34% lower vs. shared‑lead marketplaces</li>
+        </ul>
+        <button id="openContact2" class="mt-4 px-4 py-2 rounded-2xl border border-white/15 hover:bg-white/5">Request full study</button>
       </div>
-      <div class="card p-6 rounded-2xl">
-        <h3 class="font-semibold">2) Launch high‑intent funnels</h3>
-        <p class="mt-2 text-neutral-300">City pages, calculators, and click‑to‑call flows. Unique numbers & forms per brand/location.</p>
-      </div>
-      <div class="card p-6 rounded-2xl">
-        <h3 class="font-semibold">3) Verify & route fast</h3>
-        <p class="mt-2 text-neutral-300">SMS OTP and email validation. Leads hit your CRM and line in under a minute.</p>
+      <div class="glass soft rounded-3xl p-6 border border-white/10">
+        <div class="text-sm font-semibold">Enterprise Readiness</div>
+        <ul class="list-disc pl-5 mt-2 text-sm text-[var(--muted)] space-y-2">
+          <li>Consent logs: timestamp, IP, UA; opt‑out SMS (STOP)</li>
+          <li>Unique numbers/forms per brand/location for clean attribution</li>
+          <li>DPA available; data retention 18 months</li>
+        </ul>
+        <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+          <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+            <div class="text-[var(--muted)]">Security</div>
+            <div class="mono">TLS • RBAC • Audit trail</div>
+          </div>
+          <div class="p-3 rounded-xl bg-white/5 border border-white/10">
+            <div class="text-[var(--muted)]">Integrations</div>
+            <div class="mono">HubSpot • ServiceTitan • Clio</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Solutions (no pricing) -->
-  <section id="solutions" class="max-w-6xl mx-auto px-4 pb-16">
-    <h2 class="text-2xl md:text-4xl font-extrabold">Solutions</h2>
-    <div class="mt-8 grid md:grid-cols-3 gap-6">
-      <div class="card p-6 rounded-2xl">
-        <h3 class="font-semibold">Exclusive Leads</h3>
-        <p class="mt-2 text-neutral-300">Inbound calls & forms that meet your criteria. Territory protection available.</p>
+  <!-- BILLING -->
+  <section id="billing" class="py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-extrabold">Billing Designed for Accountability</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="glass soft p-6 rounded-3xl border border-white/10">
+          <div class="text-sm font-semibold">Pay‑Per‑Lead (PPL)</div>
+          <ul class="list-disc pl-5 text-sm text-[var(--muted)] mt-2 space-y-2">
+            <li><strong>100% upfront</strong> for a lead block (e.g., 20) <em>or</em> <strong>60% upfront + 40% on delivery</strong>.</li>
+            <li>Exclusive by territory/service; replacements for <em>invalids</em> (unreachable, duplicate, out‑of‑area) within 7 days.</li>
+            <li>Typical ranges: HS $45–$120; Med‑Spa $60–$150; Legal/High‑intent $150–$350.</li>
+          </ul>
+        </div>
+        <div class="glass soft p-6 rounded-3xl border border-white/10">
+          <div class="text-sm font-semibold">Pay‑Per‑Show (PPS)</div>
+          <ul class="list-disc pl-5 text-sm text-[var(--muted)] mt-2 space-y-2">
+            <li>Deposit: <strong>50–70%</strong> of expected total before calendar activation; balance weekly for <em>kept</em> appointments.</li>
+            <li>Show = prospect attends and matches ICP filters.</li>
+            <li>Typical ranges: $120–$300 per kept appointment.</li>
+          </ul>
+        </div>
       </div>
-      <div class="card p-6 rounded-2xl">
-        <h3 class="font-semibold">Booked Appointments</h3>
-        <p class="mt-2 text-neutral-300">Calendar‑integrated bookings with show safeguards and reminders.</p>
-      </div>
-      <div class="card p-6 rounded-2xl">
-        <h3 class="font-semibold">Multi‑Location Pilots</h3>
-        <p class="mt-2 text-neutral-300">A scoped rollout for regional brands across select markets.</p>
-      </div>
-    </div>
-    <div class="mt-6">
-      <button class="px-5 py-3 rounded-xl bg-white text-neutral-900 font-semibold" data-modal-open="pricingModal">Request a tailored proposal</button>
+      <p class="text-[11px] text-[var(--muted)] mt-4">Card/ACH on file required. Late payments may pause routing. Pricing USD unless agreed otherwise.</p>
     </div>
   </section>
 
-  <!-- Transparency / Proof placeholder -->
-  <section id="proof" class="max-w-6xl mx-auto px-4 pb-16">
-    <h2 class="text-2xl md:text-4xl font-extrabold">Transparency</h2>
-    <p class="mt-2 text-neutral-300">We share a rolling view of contact rates, show rates, and QA outcomes. Link a read‑only dashboard here when ready.</p>
-    <div class="mt-6 card rounded-2xl p-6">
-      <iframe title="Live Metrics" class="w-full h-80 rounded-xl border border-neutral-800" src="about:blank"></iframe>
-      <p class="mt-3 text-xs text-neutral-500">Embed a Sheet or dashboard when available.</p>
+  <!-- CTA -->
+  <section id="start" class="py-20">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold">Ready to Map Your Territories?</h2>
+      <p class="text-[var(--muted)] mt-3">Pick PPL or PPS. We’ll confirm ICP, set unique numbers/forms, and start routing. Deposits secure capacity.</p>
+      <div class="mt-6 flex flex-wrap gap-3 justify-center">
+        <a href="#" id="openCheckout" class="ringy px-6 py-3 rounded-2xl text-white" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Secure Deposit</a>
+        <button id="openContact3" class="px-6 py-3 rounded-2xl border border-white/15 hover:bg-white/5">Request a Proposal</button>
+      </div>
+      <p class="text-[11px] text-[var(--muted)] mt-3">No long contracts. Pause or scale monthly. Transparent logs provided.</p>
     </div>
   </section>
 
-  <!-- FAQ with accordions -->
-  <section id="faq" class="max-w-6xl mx-auto px-4 pb-20">
-    <h2 class="text-2xl md:text-4xl font-extrabold">FAQ</h2>
-    <div class="mt-6 divide-y divide-neutral-800 border border-neutral-800 rounded-2xl">
-      <details class="p-5" open>
-        <summary class="cursor-pointer font-semibold">Do you share leads or resell lists?</summary>
-        <p class="mt-2 text-neutral-300">No. Leads are exclusive per client and market. Each funnel uses unique tracking.</p>
-      </details>
-      <details class="p-5">
-        <summary class="cursor-pointer font-semibold">How do you handle compliance?</summary>
-        <p class="mt-2 text-neutral-300">Consent language with TCPA opt‑in, honor DNC, and store audit trails (IP, timestamp, user agent). SMS STOP/HELP supported.</p>
-      </details>
-      <details class="p-5">
-        <summary class="cursor-pointer font-semibold">Can we discuss upfront payments?</summary>
-        <p class="mt-2 text-neutral-300">Yes. We typically reserve capacity with a refundable deposit and milestone billing for scoped pilots.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- Footer with contact & mini form -->
-  <footer class="border-t border-neutral-800">
-    <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8 text-sm">
+  <!-- FOOTER -->
+  <footer class="py-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
       <div>
-        <div class="font-semibold text-neutral-200">ArcLead</div>
-        <p class="mt-2 text-neutral-400">Exclusive demand for service brands. We comply with TCPA and honor DNC.</p>
+        <div class="text-xl font-extrabold">ARI Consulting</div>
+        <p class="text-[var(--muted)] mt-2">Exclusive, compliant demand generation. Built for teams who measure everything.</p>
       </div>
       <div>
-        <div class="font-semibold text-neutral-200">Company</div>
-        <ul class="mt-2 space-y-1 text-neutral-400">
-          <li><a href="#" class="hover:underline">Privacy</a></li>
-          <li><a href="#" class="hover:underline">Data Processing</a></li>
-          <li><a href="#" class="hover:underline">Security</a></li>
+        <div class="font-semibold">Company</div>
+        <ul class="mt-2 space-y-2 text-[var(--muted)]">
+          <li><a href="#billing" class="hover:text-white">Pricing & Billing</a></li>
+          <li><a href="#" id="openPrivacy" class="hover:text-white">Privacy & TCPA</a></li>
         </ul>
       </div>
       <div>
-        <div class="font-semibold text-neutral-200">Quick contact</div>
-        <form id="footerForm" class="mt-3 space-y-2" action="https://formspree.io/f/your-id" method="POST">
-          <input required name="email" type="email" placeholder="Business email" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800"/>
-          <input name="phone" placeholder="Phone (optional)" class="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800"/>
-          <button class="w-full px-3 py-2 rounded-xl bg-white text-neutral-900 font-semibold">Get in touch</button>
-          <p class="text-xs text-neutral-500">We’ll reply within one business day.</p>
-        </form>
+        <div class="font-semibold">Contact</div>
+        <ul class="mt-2 space-y-2 text-[var(--muted)]">
+          <li>Email: <a href="#" id="copyEmail" class="underline">hello@ariconsulting.co</a> <span id="copied" class="ml-1 text-xs text-[var(--brand2)] hidden">copied!</span></li>
+          <li><a href="#" id="openContact" class="underline">Talk to a Strategist</a></li>
+        </ul>
       </div>
     </div>
+    <div class="max-w-7xl mx-auto px-4 mt-8 text-xs text-[var(--muted)]">© <span id="year"></span> ARI Consulting. All rights reserved.</div>
   </footer>
 
-  <!-- Pricing / Proposal Modal -->
-  <div id="pricingModal" class="fixed inset-0 hidden items-center justify-center bg-black/70 p-4">
-    <div class="card rounded-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute right-3 top-3 text-neutral-400" data-modal-close>&#10005;</button>
-      <h3 class="text-xl font-bold">Request pricing & availability</h3>
-      <p class="mt-1 text-sm text-neutral-400">Tell us about your service and markets. We’ll send a tailored proposal.</p>
-      <form id="pricingForm" class="mt-4 space-y-3" action="https://formspree.io/f/your-id" method="POST">
-        <div>
-          <label class="block text-sm text-neutral-300">Business name</label>
-          <input required name="company" class="mt-1 w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800"/>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div>
-            <label class="block text-sm text-neutral-300">Email</label>
-            <input required type="email" name="email" class="mt-1 w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800"/>
-          </div>
-          <div>
-            <label class="block text-sm text-neutral-300">Phone</label>
-            <input required name="phone" class="mt-1 w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800"/>
-          </div>
-        </div>
-        <div>
-          <label class="block text-sm text-neutral-300">Services & markets</label>
-          <textarea required name="details" rows="3" class="mt-1 w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800" placeholder="e.g., HVAC — Philadelphia, Camden, Wilmington"></textarea>
-        </div>
-        <input type="hidden" name="_subject" value="Pricing Request — ArcLead" />
-        <button class="w-full px-5 py-3 rounded-xl bg-white text-neutral-900 font-semibold" id="pricingSubmit">Send request</button>
-        <div id="pricingMsg" class="hidden text-sm mt-2"></div>
+  <!-- CONTACT MODAL -->
+  <div id="contactModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4">
+    <div class="glass soft rounded-2xl max-w-lg w-full p-6 border border-white/10">
+      <div class="flex items-center justify-between">
+        <h3 class="font-semibold">Speak with a Strategist</h3>
+        <button id="closeContact" class="text-[var(--muted)]">✕</button>
+      </div>
+      <p class="text-sm text-[var(--muted)] mt-2">Share territories, services, and monthly capacity. We’ll respond with pilot options and a deposit link.</p>
+      <form class="mt-4 grid gap-3" action="https://formspree.io/f/xbldgygv" method="POST">
+        <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2" type="text" name="name" placeholder="Your name" required />
+        <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2" type="email" name="email" placeholder="Work email" required />
+        <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2" type="tel" name="phone" placeholder="Phone (for demo)" />
+        <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2" type="text" name="company" placeholder="Company" />
+        <textarea class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2" name="notes" rows="4" placeholder="Territories, services, monthly volume, PPL or PPS"></textarea>
+        <label class="text-xs text-[var(--muted)] flex items-start gap-2"><input type="checkbox" required class="mt-1"> I consent to be contacted by phone/SMS and email. STOP to opt‑out. Data handled per Privacy & TCPA.</label>
+        <button class="ringy px-4 py-2 rounded-2xl text-white" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Send</button>
       </form>
+      <p class="text-[11px] text-[var(--muted)] mt-2">Submitting this form records your IP, timestamp, and user agent for compliance.</p>
     </div>
   </div>
 
-  <!-- Toast -->
-  <div id="toast" class="fixed bottom-6 right-6 hidden px-4 py-2 rounded-xl bg-emerald-600 text-white text-sm shadow-lg">Sent! We’ll get back shortly.</div>
+  <!-- PRIVACY MODAL -->
+  <div id="privacyModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4">
+    <div class="glass soft rounded-2xl max-w-2xl w-full p-6 border border-white/10">
+      <div class="flex items-center justify-between">
+        <h3 class="font-semibold">Privacy & TCPA</h3>
+        <button id="closePrivacy" class="text-[var(--muted)]">✕</button>
+      </div>
+      <div class="text-sm text-[var(--muted)] mt-3 space-y-3 max-h-[60vh] overflow-auto">
+        <p>We collect contact information you provide (name, email, phone, location, service interest). We store consent logs (timestamp, IP, user agent) and honor STOP/DNC. We do not sell data to third parties; we only route your inquiry to participating providers per your request.</p>
+        <p><strong>TCPA Consent:</strong> By submitting forms or calling tracked numbers, you agree to be contacted by ARI Consulting and participating providers at the number/email provided, possibly using automated technology; message/data rates may apply; reply STOP to opt‑out.</p>
+        <p>Data retention: 18 months or as required by law/client obligations. Security: encryption in transit, role‑based access. Requests: privacy@ariconsulting.co.</p>
+      </div>
+    </div>
+  </div>
 
-  <!-- Scripts: UI interactions + functional forms -->
   <script>
-    const $ = (sel, el=document) => el.querySelector(sel);
-    const $$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
+    const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+    const mBtn = document.getElementById('mBtn'); const mMenu = document.getElementById('mMenu');
+    if (mBtn) mBtn.addEventListener('click', ()=> mMenu.classList.toggle('hidden'));
 
-    // Mobile nav
-    const navToggle = $('#navToggle');
-    const mobileNav = $('#mobileNav');
-    if (navToggle) navToggle.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    const contactModal = document.getElementById('contactModal');
+    const openContact = document.getElementById('openContact');
+    const openContact2 = document.getElementById('openContact2');
+    const openContact3 = document.getElementById('openContact3');
+    const closeContact = document.getElementById('closeContact');
+    [openContact, openContact2, openContact3].forEach(btn => btn && btn.addEventListener('click', (e)=> { e.preventDefault(); contactModal.classList.remove('hidden'); contactModal.classList.add('flex'); }));
+    if (closeContact) closeContact.addEventListener('click', ()=> { contactModal.classList.add('hidden'); contactModal.classList.remove('flex'); });
 
-    // Capacity calculator
-    const visitors = $('#visitors');
-    const cvRate = $('#cvRate');
-    const visitorsVal = $('#visitorsVal');
-    const cvRateVal = $('#cvRateVal');
-    const leadOutput = $('#leadOutput');
-    function fmt(n){return n.toLocaleString()}
-    function calc(){
-      visitorsVal.textContent = fmt(+visitors.value);
-      cvRateVal.textContent = cvRate.value + '%';
-      const leads = Math.round(+visitors.value * (+cvRate.value/100));
-      leadOutput.textContent = fmt(leads);
-    }
-    [visitors, cvRate].forEach(i=> i && i.addEventListener('input', calc));
-    calc();
+    const privacyModal = document.getElementById('privacyModal');
+    const openPrivacy = document.getElementById('openPrivacy');
+    const closePrivacy = document.getElementById('closePrivacy');
+    if (openPrivacy) openPrivacy.addEventListener('click', (e)=> { e.preventDefault(); privacyModal.classList.remove('hidden'); privacyModal.classList.add('flex'); });
+    if (closePrivacy) closePrivacy.addEventListener('click', ()=> { privacyModal.classList.add('hidden'); privacyModal.classList.remove('flex'); });
 
-    // Modal
-    function openModal(id){ const m = document.getElementById(id); if(m) m.classList.remove('hidden'), m.classList.add('flex') }
-    function closeModal(){ $$('#pricingModal').forEach(m=>m.classList.add('hidden')) }
-    $$('[data-modal-open]').forEach(btn=> btn.addEventListener('click',()=> openModal(btn.getAttribute('data-modal-open'))));
-    $$('[data-modal-close]').forEach(btn=> btn.addEventListener('click',closeModal));
-    window.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal() });
+    const copyEmail = document.getElementById('copyEmail');
+    const copied = document.getElementById('copied');
+    if (copyEmail) copyEmail.addEventListener('click', (e)=> { e.preventDefault(); navigator.clipboard.writeText('hello@ariconsulting.co'); if (copied) { copied.classList.remove('hidden'); setTimeout(()=>copied.classList.add('hidden'), 1500); } });
 
-    // Generic async form handler (Formspree compatible)
-    async function handleForm(form, msgEl){
-      form.addEventListener('submit', async (e)=>{
-        e.preventDefault();
-        const submitBtn = form.querySelector('button[type="submit"], button#pricingSubmit') || form.querySelector('button');
-        if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
-        msgEl && (msgEl.classList.add('hidden'), msgEl.textContent='');
-        try{
-          const data = new FormData(form);
-          const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' }});
-          if (res.ok) {
-            form.reset();
-            showToast('Sent! We\'ll reply soon.');
-            if (msgEl) { msgEl.classList.remove('hidden'); msgEl.classList.add('text-emerald-400'); msgEl.textContent = 'Thanks! We\'ll follow up shortly.'; }
-          } else {
-            if (msgEl) { msgEl.classList.remove('hidden'); msgEl.classList.add('text-rose-400'); msgEl.textContent = 'Something went wrong. Please email sales.'; }
-          }
-        } catch(err){
-          if (msgEl) { msgEl.classList.remove('hidden'); msgEl.classList.add('text-rose-400'); msgEl.textContent = 'Network error. Try again.'; }
-        } finally{
-          if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Send request'; }
-          closeModal();
-        }
-      });
-    }
-
-    const pricingForm = $('#pricingForm');
-    const pricingMsg = $('#pricingMsg');
-    if (pricingForm) handleForm(pricingForm, pricingMsg);
-
-    const footerForm = $('#footerForm');
-    if (footerForm) handleForm(footerForm, null);
-
-    function showToast(text){
-      const t = $('#toast'); if(!t) return; t.textContent = text; t.classList.remove('hidden');
-      setTimeout(()=> t.classList.add('hidden'), 3000);
-    }
+    const openCheckout = document.getElementById('openCheckout');
+    if (openCheckout) openCheckout.addEventListener('click', (e)=> {
+      e.preventDefault();
+      alert('Connect this button to your Stripe checkout/deposit link when ready.');
+    });
   </script>
 </body>
 </html>
