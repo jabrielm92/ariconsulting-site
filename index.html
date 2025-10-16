@@ -360,31 +360,28 @@
 
   <!-- CONNECT MODAL (Step 1: info → Step 2: optional Calendly) -->
   <div id="connectModal" role="dialog" aria-modal="true" aria-labelledby="connectTitle" class="fixed inset-0 bg-black/60 hidden items-center justify-center p-4">
-    <div class="glass soft rounded-2xl w-full max-w-3xl border border-white/10 overflow-hidden">
-      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10">
+    <div class="glass soft rounded-2xl w-full max-w-2xl border border-white/10 overflow-hidden max-h-[80vh]">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 sticky top-0 bg-[rgba(11,15,23,.85)] backdrop-blur">
         <h3 id="connectTitle" class="font-semibold">Lets Connect</h3>
         <button id="closeConnect" class="text-[var(--muted)]" aria-label="Close connect">✕</button>
       </div>
-      <div class="grid md:grid-cols-1 max-h-[85vh] overflow-y-auto">
+      <div class="grid md:grid-cols-1 max-h-[calc(80vh-56px)] overflow-y-auto">
         <div class="p-5 md:p-6">
           <p class="text-sm text-[var(--muted)]">Tell us a bit about your markets and goals. After you submit, you’ll see an option to book a time—totally optional.</p>
           <form id="connectForm" class="mt-4 grid gap-3" novalidate>
-            <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="text" name="name" placeholder="Your name" required />
-            <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="email" name="email" placeholder="Work email" required />
-            <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="tel" name="phone" placeholder="Phone (optional)" />
-            <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="text" name="company" placeholder="Company (optional)" />
+            <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2 text-sm" type="text" name="name" placeholder="Your name" required />
+            <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2 text-sm" type="email" name="email" placeholder="Work email" required />
+            <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2 text-sm" type="tel" name="phone" placeholder="Phone (optional)" />
+            <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2 text-sm" type="text" name="company" placeholder="Company (optional)" />
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <select name="industry" class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3">
-                <option value="">Industry</option>
-                <option>Local Small Business</option>
-                <option>Trades & Home Services</option>
-                <option>Health & Wellness</option>
-                <option>Legal</option>
-                <option>B2B Services</option>
-              </select>
-              <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" type="text" name="primary_market" placeholder="Primary market (city/region)" />
+              <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2 text-sm" type="text" name="industry" placeholder="Industry / niche (e.g., HVAC, Med‑Spa, MSP)" />
+              <div class="grid grid-cols-3 gap-3">
+                <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2 text-sm" type="number" name="leads_needed" placeholder="Leads/mo" min="0" />
+                <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2 text-sm" type="number" name="sales_goal" placeholder="Sales/mo" min="0" />
+                <input class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2 text-sm" type="number" name="appointments_goal" placeholder="Appts/mo" min="0" />
+              </div>
             </div>
-            <textarea class="bg-white/5 border border-white/10 rounded-2xl px-3 py-3" name="notes" rows="4" placeholder="Territories, volume goals, current ad spend, preferred lead model (PPL/PPS)"></textarea>
+            <textarea class="bg-white/5 border border-white/10 rounded-2xl px-3 py-2 text-sm" name="notes" rows="3" placeholder="Context (optional): goals, ICP, notes"></textarea>
             <!-- Honeypot -->
             <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
             <label class="text-xs text-[var(--muted)] flex items-start gap-2"><input type="checkbox" name="consent" required class="mt-1"> I consent to be contacted by phone/SMS and email. STOP to opt‑out. Data handled per Privacy & TCPA.</label>
@@ -395,6 +392,12 @@
           <!-- Step 2 (collapsed): Success + optional Calendly reveal -->
           <div id="successBlock" class="hidden mt-5 p-4 rounded-2xl bg-white/5 border border-white/10">
             <div class="text-sm">✅ <span class="font-semibold">Successful.</span> We received your details.</div>
+            <div class="text-xs text-[var(--muted)] mt-1">If you’d like, you can book a meeting now—or close this window and we’ll follow up by email.</div>
+            <div class="mt-3 flex flex-col sm:flex-row flex-wrap gap-3">
+              <button id="revealCalendly" class="w-full sm:w-auto px-4 py-2 rounded-2xl border border-white/15 hover:bg-white/5">Book a time</button>
+              <button id="closeConnect2" class="w-full sm:w-auto px-4 py-2 rounded-2xl border border-white/15 hover:bg-white/5">Close</button>
+            </div>
+          </div>
             <div class="text-xs text-[var(--muted)] mt-1">If you’d like, you can book a meeting now—or close this window and we’ll follow up by email.</div>
             <div class="mt-3 flex flex-wrap gap-3">
               <button id="revealCalendly" class="px-4 py-2 rounded-2xl border border-white/15 hover:bg-white/5">Book a time</button>
@@ -447,15 +450,15 @@
   <!-- Firebase (client-side) + Calendly lazy embed after success -->
   <script type="module">
     // Replace with your Firebase web app config
-const firebaseConfig = {
-  apiKey: "AIzaSyBYT2TxV16VqffIzPIRX5NY0NPiBHAJRDI",
-  authDomain: "ariconsulting-ed653.firebaseapp.com",
-  projectId: "ariconsulting-ed653",
-  storageBucket: "ariconsulting-ed653.firebasestorage.app",
-  messagingSenderId: "295204571553",
-  appId: "1:295204571553:web:609edd27d13978803f23e0",
-  measurementId: "G-5Q1E8HH98V"
-};
+    const firebaseConfig = {
+      apiKey: "AIzaSyBYT2TxV16VqffIzPIRX5NY0NPiBHAJRDI",
+      authDomain: "ariconsulting-ed653.firebaseapp.com",
+      projectId: "ariconsulting-ed653",
+      storageBucket: "ariconsulting-ed653.firebasestorage.app",
+      messagingSenderId: "295204571553",
+      appId: "1:295204571553:web:609edd27d13978803f23e0",
+      measurementId: "G-5Q1E8HH98V"
+    };
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
@@ -470,6 +473,15 @@ const firebaseConfig = {
     const closeConnect2 = document.getElementById('closeConnect2');
     const calendlyWrap = document.getElementById('calendlyWrap');
     const calendlyContainer = document.getElementById('calendlyContainer');
+    let formSubmitted = false;
+
+    // Close after booking if form was submitted
+    window.addEventListener('message', (e)=>{
+      if (e?.data?.event === 'calendly.event_scheduled' && formSubmitted) {
+        document.getElementById('closeConnect')?.click();
+        formSubmitted = false;
+      }
+    });
 
     if (closeConnect2) closeConnect2.addEventListener('click', ()=> { document.getElementById('closeConnect')?.click(); });
 
@@ -484,7 +496,7 @@ const firebaseConfig = {
 
     function showCalendly(){
       calendlyWrap.classList.remove('hidden');
-      calendlyContainer.style.height = '620px';
+      calendlyContainer.style.height = '560px';
       loadCalendly();
       // Scroll inside modal to Calendly
       calendlyWrap.scrollIntoView({behavior:'smooth', block:'start'});
@@ -497,7 +509,11 @@ const firebaseConfig = {
         e.preventDefault();
         const data = Object.fromEntries(new FormData(form).entries());
         try {
-          if (data.website) { form.reset(); msg.textContent = 'Thanks!'; successBlock.classList.remove('hidden'); return; }
+          if (data.website) { form.reset(); msg.textContent = 'Thanks!'; successBlock.classList.remove('hidden');
+          form.classList.add('hidden');
+          successBlock.scrollIntoView({behavior:'smooth'});
+          document.getElementById('revealCalendly')?.focus();
+          formSubmitted = true; return; }
           if(!data.name || !data.email || !data.consent){ msg.textContent = 'Please fill required fields and consent.'; return; }
           await addDoc(collection(db, 'leads'), {
             name: data.name,
@@ -505,7 +521,9 @@ const firebaseConfig = {
             phone: data.phone || '',
             company: data.company || '',
             industry: data.industry || '',
-            primary_market: data.primary_market || '',
+            leads_needed: Number(data.leads_needed || 0),
+            sales_goal: Number(data.sales_goal || 0),
+            appointments_goal: Number(data.appointments_goal || 0),
             notes: data.notes || '',
             consent: data.consent === 'on',
             createdAt: serverTimestamp(),
@@ -515,6 +533,9 @@ const firebaseConfig = {
           form.reset();
           msg.textContent = '';
           successBlock.classList.remove('hidden');
+          form.classList.add('hidden');
+          successBlock.scrollIntoView({behavior:'smooth'});
+          document.getElementById('revealCalendly')?.focus();
         } catch(err){
           console.error(err);
           msg.textContent = 'Sorry—something went wrong. Email arisolutionsinc@gmail.com';
