@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ARI Solutions Inc. • ARI Lead Gen Consulting</title>
+  <title>ARI Solutions Inc. • ARI Leads Gen Consulting</title>
   <meta name="description" content="ARI Solutions Inc. builds futuristic, TCPA-compliant lead systems—exclusive demand, measurable outcomes, CRM connectivity, and pricing that beats raw ad spend." />
   
   <!-- Canonical + Robots -->
@@ -63,6 +63,8 @@
     @keyframes popIn { 0%{ transform:scale(.9); opacity:0 } 100%{ transform:scale(1); opacity:1 } }
     .animate-pop{ animation: popIn .25s ease-out both; }
     .glow{ text-shadow: 0 0 25px rgba(0,245,212,.45), 0 0 50px rgba(0,245,212,.25); }
+    .slide-up{ animation: slideUp .25s ease-out both; }
+    @keyframes slideUp { from { transform: translateY(16px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   </style>
 </head>
 <body class="grad">
@@ -119,58 +121,33 @@
           <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1 rounded-full">🔁 Invalid-lead replacement</span>
         </div>
       </div>
+
+      <!-- ROI Calculator (unchanged) -->
       <div class="relative">
         <div class="glass soft rounded-3xl p-6 border border-white/10" id="roiCard">
           <h3 class="text-sm font-semibold text-[var(--muted)]">ROI / Value Estimator</h3>
           <p class="text-xs text-[var(--muted)] mt-1">Plug in rough numbers or tap a preset—see the value of exclusive leads for <em>your</em> niche.</p>
-
-          <!-- Presets -->
           <div class="mt-3 flex flex-wrap gap-2 text-xs">
             <button class="px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10" data-roi-preset='{"ltv":1200,"close":25,"cpl":85}'>Home Services</button>
             <button class="px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10" data-roi-preset='{"ltv":800,"close":22,"cpl":70}'>Med-Spa</button>
             <button class="px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10" data-roi-preset='{"ltv":2500,"close":18,"cpl":150}'>Legal</button>
             <button class="px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10" data-roi-preset='{"ltv":3500,"close":12,"cpl":180}'>B2B / IT</button>
           </div>
-
           <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
-            <div>
-              <label class="block text-[var(--muted)] mb-1">Current Ad Spend / mo ($)</label>
-              <input id="roiSpend" type="number" min="0" class="w-full bg-white/5 border border-white/10 rounded-2xl px-3 py-2" placeholder="4000">
-            </div>
-            <div>
-              <label class="block text-[var(--muted)] mb-1">Avg Customer Value ($)</label>
-              <input id="roiLtv" type="number" min="0" class="w-full bg-white/5 border border-white/10 rounded-2xl px-3 py-2" placeholder="1200">
-            </div>
-            <div>
-              <label class="block text-[var(--muted)] mb-1">Lead→Sale %</label>
-              <input id="roiClose" type="number" min="0" max="100" class="w-full bg-white/5 border border-white/10 rounded-2xl px-3 py-2" placeholder="25">
-            </div>
-            <div>
-              <label class="block text-[var(--muted)] mb-1">Current CPL ($)</label>
-              <input id="roiCpl" type="number" min="0" class="w-full bg-white/5 border border-white/10 rounded-2xl px-3 py-2" placeholder="85">
-            </div>
+            <div><label class="block text-[var(--muted)] mb-1">Current Ad Spend / mo ($)</label><input id="roiSpend" type="number" min="0" class="w-full bg-white/5 border border-white/10 rounded-2xl px-3 py-2" placeholder="4000"></div>
+            <div><label class="block text-[var(--muted)] mb-1">Avg Customer Value ($)</label><input id="roiLtv" type="number" min="0" class="w-full bg-white/5 border border-white/10 rounded-2xl px-3 py-2" placeholder="1200"></div>
+            <div><label class="block text-[var(--muted)] mb-1">Lead→Sale %</label><input id="roiClose" type="number" min="0" max="100" class="w-full bg-white/5 border border-white/10 rounded-2xl px-3 py-2" placeholder="25"></div>
+            <div><label class="block text-[var(--muted)] mb-1">Current CPL ($)</label><input id="roiCpl" type="number" min="0" class="w-full bg-white/5 border border-white/10 rounded-2xl px-3 py-2" placeholder="85"></div>
           </div>
-
           <div class="mt-4 grid grid-cols-3 gap-3 text-center">
-            <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
-              <div class="text-2xl font-extrabold" id="roiLeads">—</div>
-              <div class="text-[10px] text-[var(--muted)]">Leads / mo (current)</div>
-            </div>
-            <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
-              <div class="text-2xl font-extrabold" id="roiSales">—</div>
-              <div class="text-[10px] text-[var(--muted)]">Expected Sales</div>
-            </div>
-            <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
-              <div class="text-2xl font-extrabold" id="roiReturn">—</div>
-              <div class="text-[10px] text-[var(--muted)]">Est. Revenue ($)</div>
-            </div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10"><div class="text-2xl font-extrabold" id="roiLeads">—</div><div class="text-[10px] text-[var(--muted)]">Leads / mo (current)</div></div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10"><div class="text-2xl font-extrabold" id="roiSales">—</div><div class="text-[10px] text-[var(--muted)]">Expected Sales</div></div>
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10"><div class="text-2xl font-extrabold" id="roiReturn">—</div><div class="text-[10px] text-[var(--muted)]">Est. Revenue ($)</div></div>
           </div>
-
           <div class="mt-4 p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
             <div class="text-[var(--muted)]">What would you pay for more leads/kept appts?</div>
             <div id="roiNarrative" class="mono mt-1">Enter numbers or tap a preset.</div>
           </div>
-
           <div class="mt-4 text-center">
             <button id="roiCalcBtn" class="inline-block ringy px-5 py-2 rounded-2xl text-white">Calculate</button>
           </div>
@@ -211,8 +188,46 @@
     <style>@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}</style>
   </section>
 
-  <!-- SOLUTIONS -->
-  <section id="solutions" class="py-16 md:py-24">
+  <!-- MOBILE DECK (visible only < md) -->
+  <section id="deck" class="md:hidden py-10">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-extrabold mb-4">Explore</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <button class="glass soft rounded-3xl p-5 border border-white/10 text-left" data-deck-target="solutions">
+          <div class="text-lg font-bold">Solutions</div>
+          <div class="text-xs text-[var(--muted)]">Funnels that outconvert ads</div>
+        </button>
+        <button class="glass soft rounded-3xl p-5 border border-white/10 text-left" data-deck-target="proof">
+          <div class="text-lg font-bold">Proof</div>
+          <div class="text-xs text-[var(--muted)]">Outcomes & enterprise</div>
+        </button>
+        <button class="glass soft rounded-3xl p-5 border border-white/10 text-left" data-deck-target="pricing">
+          <div class="text-lg font-bold">Pricing</div>
+          <div class="text-xs text-[var(--muted)]">PPL & PPS options</div>
+        </button>
+        <button class="glass soft rounded-3xl p-5 border border-white/10 text-left" data-deck-target="about">
+          <div class="text-lg font-bold">About Us</div>
+          <div class="text-xs text-[var(--muted)]">Principles & approach</div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION SHEET (mobile) -->
+  <div id="deckSheet" class="md:hidden fixed inset-0 bg-black/70 hidden items-end justify-center z-50">
+    <div class="w-full max-w-2xl">
+      <div class="glass soft rounded-t-3xl border border-white/10 overflow-hidden max-h-[85vh] slide-up">
+        <div class="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-[rgba(11,15,23,.85)] backdrop-blur">
+          <h3 id="deckTitle" class="font-semibold">Section</h3>
+          <button id="deckClose" class="text-[var(--muted)] px-2 py-1 rounded-lg hover:bg-white/5">Close</button>
+        </div>
+        <div id="deckContent" class="p-5 overflow-y-auto" style="max-height: calc(85vh - 56px)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOLUTIONS (desktop only) -->
+  <section id="solutions" class="py-16 md:py-24 hidden md:block">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl md:text-4xl font-extrabold">How We Find You More Leads, Sales, & Appointments</h2>
       <p class="text-[var(--muted)] mt-2">Tactics we deploy and adapt per industry, market, and capacity.</p>
@@ -442,12 +457,6 @@
               <button id="closeConnect2" class="w-full sm:w-auto px-4 py-2 rounded-2xl border border-white/15 hover:bg-white/5">Close</button>
             </div>
           </div>
-            <div class="text-xs text-[var(--muted)] mt-1">If you’d like, you can book a meeting now—or close this window and we’ll follow up by email.</div>
-            <div class="mt-3 flex flex-wrap gap-3">
-              <button id="revealCalendly" class="px-4 py-2 rounded-2xl border border-white/15 hover:bg-white/5">Book a time</button>
-              <button id="closeConnect2" class="px-4 py-2 rounded-2xl border border-white/15 hover:bg-white/5">Close</button>
-            </div>
-          </div>
 
           <div id="calendlyWrap" class="hidden mt-4">
             <div class="text-sm text-[var(--muted)] mb-2">Pick a time</div>
@@ -458,7 +467,9 @@
     </div>
   </div>
 
+  <!-- SCRIPTS -->
   <script>
+    // Year + mobile menu
     const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
     const mBtn = document.getElementById('mBtn'); const mMenu = document.getElementById('mMenu');
     if (mBtn) mBtn.addEventListener('click', ()=> mMenu.classList.toggle('hidden'));
@@ -489,7 +500,43 @@
     function closeConnect(){ connectModal.classList.add('hidden'); connectModal.classList.remove('flex'); }
     document.getElementById('closeConnect')?.addEventListener('click', closeConnect);
 
-  // ROI Calculator logic
+    /* --------------------------
+       MOBILE DECK: card → sheet
+       -------------------------- */
+    const deckSheet = document.getElementById('deckSheet');
+    const deckContent = document.getElementById('deckContent');
+    const deckTitle = document.getElementById('deckTitle');
+    const deckClose = document.getElementById('deckClose');
+
+    function openDeck(id, title){
+      const section = document.getElementById(id);
+      if (!section || !deckSheet) return;
+      deckTitle.textContent = title || section.querySelector('h2,h3')?.textContent || 'Section';
+      // clone only the inner content of the section, not the outer wrapper
+      deckContent.innerHTML = section.innerHTML;
+      deckSheet.classList.remove('hidden');
+      deckSheet.classList.add('flex');
+      // optional: smooth scroll inside the sheet to top
+      deckContent.scrollTop = 0;
+    }
+    function closeDeck(){
+      deckSheet.classList.add('hidden');
+      deckSheet.classList.remove('flex');
+      deckContent.innerHTML = '';
+    }
+    deckClose?.addEventListener('click', closeDeck);
+    deckSheet?.addEventListener('click', (e)=>{ if(e.target === deckSheet) closeDeck(); });
+
+    // Bind all mobile deck cards
+    document.querySelectorAll('[data-deck-target]')?.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.getAttribute('data-deck-target');
+        const title = btn.querySelector('.font-bold')?.textContent || btn.textContent?.trim();
+        openDeck(id, title);
+      });
+    });
+
+    // ROI Calculator logic
     (function(){
       const spend = document.getElementById('roiSpend');
       const ltv   = document.getElementById('roiLtv');
@@ -567,16 +614,24 @@
 
       oClose?.addEventListener('click', ()=>{ overlay.classList.add('hidden'); overlay.classList.remove('flex'); });
       overlay?.addEventListener('click', (e)=>{ if(e.target===overlay) { overlay.classList.add('hidden'); overlay.classList.remove('flex'); } });
-      oSched?.addEventListener('click', (e)=>{ e.preventDefault(); overlay.classList.add('hidden'); overlay.classList.remove('flex'); if (window.openCalendlyModal) { window.openCalendlyModal(); } else { document.getElementById('openConnectHero')?.click(); } });
 
-      // initial
+      // Schedule → open Calendly in Connect modal
+      oSched?.addEventListener('click', (e)=>{
+        e.preventDefault();
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+        if (window.openCalendlyModal) window.openCalendlyModal();
+        else document.getElementById('openConnectHero')?.click();
+      });
+
+      // initial state
       calc(true);
     })();
   </script>
 
   <!-- Firebase (client-side) + Calendly lazy embed after success -->
   <script type="module">
-    // Replace with your Firebase web app config
+    // Firebase web app config
     const firebaseConfig = {
       apiKey: "AIzaSyBYT2TxV16VqffIzPIRX5NY0NPiBHAJRDI",
       authDomain: "ariconsulting-ed653.firebaseapp.com",
@@ -614,10 +669,12 @@
 
     function loadCalendly(){
       if (calendlyContainer.dataset.loaded) return;
-      // Your Calendly event URL
       const calendlyUrl = 'https://calendly.com/arisolutionsinc/30min';
       calendlyContainer.innerHTML = `<div class="calendly-inline-widget" data-url="${calendlyUrl}" style="min-width:320px;height:100%;"></div>`;
-      const s = document.createElement('script'); s.src = 'https://assets.calendly.com/assets/external/widget.js'; s.async = true; document.body.appendChild(s);
+      const s = document.createElement('script');
+      s.src = 'https://assets.calendly.com/assets/external/widget.js';
+      s.async = true;
+      document.body.appendChild(s);
       calendlyContainer.dataset.loaded = '1';
     }
 
@@ -625,13 +682,12 @@
       calendlyWrap.classList.remove('hidden');
       calendlyContainer.style.height = '560px';
       loadCalendly();
-      // Scroll inside modal to Calendly
       calendlyWrap.scrollIntoView({behavior:'smooth', block:'start'});
     }
 
     if (revealCalendlyBtn) revealCalendlyBtn.addEventListener('click', showCalendly);
 
-    // Expose a helper to open the Connect modal and auto-show Calendly from anywhere (e.g., ROI overlay)
+    // Helper to open Connect modal and auto-show Calendly from anywhere (e.g., ROI overlay)
     window.openCalendlyModal = function(){
       const connectModal = document.getElementById('connectModal');
       if (connectModal) { connectModal.classList.remove('hidden'); connectModal.classList.add('flex'); }
@@ -643,12 +699,20 @@
         e.preventDefault();
         const data = Object.fromEntries(new FormData(form).entries());
         try {
-          if (data.website) { form.reset(); msg.textContent = 'Thanks!'; successBlock.classList.remove('hidden');
-          form.classList.add('hidden');
-          successBlock.scrollIntoView({behavior:'smooth'});
-          document.getElementById('revealCalendly')?.focus();
-          formSubmitted = true; return; }
-          if(!data.name || !data.email || !data.consent){ msg.textContent = 'Please fill required fields and consent.'; return; }
+          // Honeypot
+          if (data.website) {
+            form.reset();
+            msg.textContent = 'Thanks!';
+            successBlock.classList.remove('hidden');
+            form.classList.add('hidden');
+            successBlock.scrollIntoView({behavior:'smooth'});
+            document.getElementById('revealCalendly')?.focus();
+            formSubmitted = true;
+            return;
+          }
+          if(!data.name || !data.email || !data.consent){
+            msg.textContent = 'Please fill required fields and consent.'; return;
+          }
           await addDoc(collection(db, 'leads'), {
             name: data.name,
             email: data.email,
@@ -670,6 +734,7 @@
           form.classList.add('hidden');
           successBlock.scrollIntoView({behavior:'smooth'});
           document.getElementById('revealCalendly')?.focus();
+          formSubmitted = true;
         } catch(err){
           console.error(err);
           msg.textContent = 'Sorry—something went wrong. Email arisolutionsinc@gmail.com';
@@ -678,6 +743,6 @@
     }
   </script>
 
-  <!-- NOTE: For production, consider a Vercel serverless function to handle form posts securely. Add strict Firestore Security Rules if any client-side writes remain. -->
+  <!-- NOTE: For production, consider locking down Firestore Security Rules, or proxy via a serverless function. -->
 </body>
 </html>
