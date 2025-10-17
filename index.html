@@ -114,10 +114,24 @@
           <span class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1 rounded-full">🔁 Invalid‑lead replacement</span>
         </div>
       </div>
+      
+  <!-- RoiCalc -->
       <div class="relative">
        <div class="glass soft rounded-3xl p-6 border border-white/10" id="roiCard">
   <h3 class="text-sm font-semibold text-[var(--muted)]">ROI / Value Estimator</h3>
-  <p class="text-xs text-[var(--muted)] mt-1">Quick forecast. You can refine with us later.</p>
+  <p class="text-xs text-[var(--muted)] mt-1">Plug in rough numbers or tap a preset—see the value of exclusive leads for <em>your</em> niche.</p>
+
+  <!-- Presets -->
+  <div class="mt-3 flex flex-wrap gap-2 text-xs">
+    <button class="px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10"
+            data-roi-preset='{"ltv":1200,"close":25,"cpl":85}'>Home Services</button>
+    <button class="px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10"
+            data-roi-preset='{"ltv":800,"close":22,"cpl":70}'>Med-Spa</button>
+    <button class="px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10"
+            data-roi-preset='{"ltv":2500,"close":18,"cpl":150}'>Legal</button>
+    <button class="px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:bg-white/10"
+            data-roi-preset='{"ltv":3500,"close":12,"cpl":180}'>B2B / IT</button>
+  </div>
 
   <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
     <div>
@@ -155,13 +169,14 @@
 
   <div class="mt-4 p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
     <div class="text-[var(--muted)]">What would you pay for more leads/kept appts?</div>
-    <div id="roiNarrative" class="mono mt-1">Enter numbers to see your baseline.</div>
+    <div id="roiNarrative" class="mono mt-1">Enter numbers or tap a preset.</div>
   </div>
 
   <div class="mt-4 text-center">
-    <a id="openConnectHeroRoi" class="inline-block ringy px-5 py-2 rounded-2xl text-white cursor-pointer" style="background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(0,245,212,.35));">Lets Connect</a>
+    <button id="roiCalcBtn" class="inline-block ringy px-5 py-2 rounded-2xl text-white">Calculate</button>
   </div>
 </div>
+
           <div class="mt-4 grid grid-cols-1 gap-3 text-xs">
             <div class="p-3 rounded-xl bg-white/5 border border-white/10">
               <div class="text-[var(--muted)]">Tech Stack</div>
